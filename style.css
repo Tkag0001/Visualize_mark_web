@@ -22,10 +22,30 @@ body {
 }
 
 .logo {
+    position: relative;
     font-size: 25px;
     color:#7693f4;
     text-decoration: none;
     font-weight: 600;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: whitesmoke;
+    animation: showRight 1s ease forwards;
+    animation-delay: .4s;
+    border-radius: 5px;
+}
+
+@keyframes showRight {
+    100%{
+        width: 0;
+    }
 }
 
 .navbar a{
