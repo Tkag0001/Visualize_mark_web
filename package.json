@@ -9,7 +9,7 @@
   },
   "name": "node-js-basis",
   "version": "1.0.0",
-  "main": "app41.js",
+  "main": "app.js",
   "scripts": {
     "start": "nodemon server.js"
   },
