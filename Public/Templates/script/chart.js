@@ -33,7 +33,7 @@ function objectToString(data) {
     return result
 }
 
-function drawChart(dataBarChart, dataPieChart) {
+function drawChart(dataColumnChart, dataPieChart) {
     // Set Options
     const options = {
         height: '400px',
@@ -41,8 +41,8 @@ function drawChart(dataBarChart, dataPieChart) {
     };
 
     // Draw
-    const barChart = new google.visualization.BarChart($('#myBarChart')[0]);
-    barChart.draw(dataBarChart, options);
+    const columnChart = new google.visualization.ColumnChart($('#myColumnChart')[0]);
+    columnChart.draw(dataColumnChart, options);
 
     const pieChart = new google.visualization.PieChart($('#myPieChart')[0]);
     pieChart.draw(dataPieChart, options);
@@ -93,18 +93,8 @@ $(document).ready(async function () {
     //query[1]: MaMH
     //query[2]: MaGV
     //query[3]: HocKy
+
     var queryString = ""
-
-    // var queryMaMH
-    // var queryMaGV
-    // var queryHocKy
-    var searchData
-
-    //Data fetched
-    // var dataMaMH = objectToString(await getJsonData(url_MaMH))
-    // var dataMaGv = objectToString(await getJsonData(url_MaGV))
-    // dataMaGv = dataMaGv.filter((el) => el != " - ")
-    // var dataHocKy = objectToString(await getJsonData(url_HocKy))
 
     var searchInput = $('#searchType1')
     var searchWrapper = $('#wrapper1')
@@ -138,8 +128,6 @@ $(document).ready(async function () {
         let results = [];
         const id = $(this).attr('id')
         let input = this.value;
-        // searchWrapper = $(`#wrapper${id.slice(-1)}`)[0];
-        // resultsWrapper = $(`#results${id.slice(-1)}`)[0];
 
         if (input.length) {
             results = searchable.filter((item) => {
@@ -151,9 +139,6 @@ $(document).ready(async function () {
 
         renderResults(results, searchWrapper, resultsWrapper);
     })
-
-    // $('.results').mouseleave(function () {
-    // })
 
     $(document).on('click', 'li', function () {
         const value = $(this).text();
@@ -197,9 +182,9 @@ $(document).ready(async function () {
         queryString = query.filter((el) => el != "").join("&")
         let data = await getJsonData(url_Classes + queryString)
         let dataChart = await groupObject(data, f_nameDiem.concat(f_nameDau))
-        let dataBarChart = convertJsonToDtTable(dataChart, f_nameDiem, col_nameDiem, title_nameDiem)
+        let dataColumnChart = convertJsonToDtTable(dataChart, f_nameDiem, col_nameDiem, title_nameDiem)
         let dataPieChart = convertJsonToDtTable(dataChart, f_nameDau, col_nameDau, title_nameDau)
-        drawChart(dataBarChart, dataPieChart)
+        drawChart(dataColumnChart, dataPieChart)
     })
 
 });
