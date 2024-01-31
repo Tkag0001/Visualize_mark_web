@@ -10,9 +10,6 @@
   "name": "node-js-basis",
   "version": "1.0.0",
   "main": "app.js",
-  "scripts": {
-    "start": "nodemon server.js"
-  },
   "author": "Tkag",
   "license": "ISC",
   "description": "",
