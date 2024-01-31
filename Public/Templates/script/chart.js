@@ -1,8 +1,8 @@
 google.charts.load('current', { packages: ['corechart'] });
-const url_MaMH = "https://odd-ruby-trout-cap.cyclic.app/v1/classes/monhoc/?"
-const url_MaGV = "https://odd-ruby-trout-cap.cyclic.app/v1/classes/giaovien/?"
-const url_HocKy = "https://odd-ruby-trout-cap.cyclic.app/v1/classes/hocky/?"
-const url_Classes = "https://odd-ruby-trout-cap.cyclic.app/v1/classes/?"
+const url_MaMH = "https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/monhoc/?"
+const url_MaGV = "https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/giaovien/?"
+const url_HocKy = "https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/hocky/?"
+const url_Classes = "https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/?"
 
 async function getJsonData(url) {
     const response = await fetch(url);
