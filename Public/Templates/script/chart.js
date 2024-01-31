@@ -1,8 +1,8 @@
 google.charts.load('current', { packages: ['corechart'] });
-const url_MaMH = "http://localhost:3000/api/v1/classes/monhoc/?"
-const url_MaGV = "http://localhost:3000/api/v1/classes/giaovien/?"
-const url_HocKy = "http://localhost:3000/api/v1/classes/hocky/?"
-const url_Classes = "http://localhost:3000/api/v1/classes/?"
+const url_MaMH = "https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/monhoc/?"
+const url_MaGV = "https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/giaovien/?"
+const url_HocKy = "https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/hocky/?"
+const url_Classes = "https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/?"
 
 const colors = ['#F5A623', '#7ED321', '#D0021B', '#4A90E2', '#9B9B9B', '#50E3C2', '#9013FE', '#8B572A', '#00C853', '#FFC107', '#FF5722'];
 
