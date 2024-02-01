@@ -3,6 +3,7 @@ const url_MaMH = "https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/monhoc/?"
 const url_MaGV = "https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/giaovien/?"
 const url_HocKy = "https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/hocky/?"
 const url_Classes = "https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/?"
+const url_MaLop = "https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/malop/?"
 
 const colors = ['#F5A623', '#7ED321', '#D0021B', '#4A90E2', '#9B9B9B', '#50E3C2', '#9013FE', '#8B572A', '#00C853', '#FFC107', '#FF5722'];
 
@@ -92,7 +93,7 @@ $(document).ready(async function () {
     ];
 
     //Query to fetch
-    var query = ["", "", ""]
+    var query = ["", "", "", ""]
     //query[1]: MaMH
     //query[2]: MaGV
     //query[3]: HocKy
@@ -118,9 +119,11 @@ $(document).ready(async function () {
         else if (id == 2) {
             searchable = objectToString(await getJsonData(url_MaGV + queryString))
         }
-        else {
-            let temp = await getJsonData(url_HocKy + queryString)
-            searchable = await temp.map((el) => el.toString())
+        else if (id == 3){
+            searchable = await getJsonData(url_HocKy + queryString)
+        }
+        else{
+            searchable = await getJsonData(url_MaLop + queryString)
         }
 
         if (this.value == "")
@@ -160,8 +163,11 @@ $(document).ready(async function () {
             else if (id == 1) {
                 query[id] = `MaGV=${ma}`
             }
-            else {
+            else if (id == 2) {
                 query[id] = `HocKy=${value}`
+            }
+            else{
+                query[id] = `MaLop=${value}`
             }
         }
         else

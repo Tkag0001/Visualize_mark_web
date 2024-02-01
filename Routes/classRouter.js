@@ -21,4 +21,6 @@ router.route('/monhoc')
 router.route('/hocky')
     .get(classes.getHocKy)
         
+router.route('/malop')
+    .get(classes.getMaLop)    
 module.exports = router

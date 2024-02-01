@@ -135,6 +135,30 @@ exports.getHocKy = async (req, res) => {
         })
     }
 }
+
+exports.getMaLop = async (req, res) => {
+    try {
+        let convertedQuery = convertQuery(req.query, classes.schema)
+        const maLop = await classes.distinct('MaLop', convertedQuery)     
+        if (maLop.length != 0) {
+            res.status(200).json({
+                status: 'success',
+                count: maLop.length,
+                data: maLop
+            })
+        } else {
+            res.status(404).json({
+                status: 'fail',
+                message: 'Data is not valid!'
+            })
+        }
+    } catch (err) {
+        res.status(404).json({
+            status: 'fail',
+            message: err.message
+        })
+    }
+}
 exports.createClass = async (req, res) => {
     try {
 
