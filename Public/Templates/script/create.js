@@ -58,12 +58,11 @@
 //   let data = new FormData(form);
 //   xhr.send(data);
 // }
+
 function uploadFile(data, table) {
-    console.log(data)
-    console.log(table)
-    let content = ""
-    data.map((el) => {
-        content += `<tr>
+    let content = "";
+    for (let el of data) {
+        let temp = `<tr>
         <td>${el.HocKy}</td>
         <td>${el.MaKhoa}</td>
         <td>${el.HoTenGV}</td>
@@ -74,14 +73,19 @@ function uploadFile(data, table) {
         <td>${el.SLD}</td>
         <td>${el.SLKD}</td>
     </tr>
-    `
-    })
-
-    console.log(content)
-    table.append(content)
-    console.log(table.innerHTML)
-    $('.wrapper_table').css("display", "inline-block")
+    `;
+        if (temp.indexOf('undefined') !== -1) {
+            $('.wrapper_table').css("display", "none");
+            alert('Can\'t read undefined');
+            return;  // This will exit the function
+        } else {
+            content += temp;
+        }
+    }
+    table.html(content);
+    $('.wrapper_table').css("display", "inline-block");
 }
+
 
 $(document).ready(function () {
     const form = $('form')
