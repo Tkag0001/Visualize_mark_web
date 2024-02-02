@@ -58,13 +58,40 @@
 //   let data = new FormData(form);
 //   xhr.send(data);
 // }
+function uploadFile(data, table) {
+    console.log(data)
+    console.log(table)
+    let content = ""
+    data.map((el) => {
+        content += `<tr>
+        <td>${el.HocKy}</td>
+        <td>${el.MaKhoa}</td>
+        <td>${el.HoTenGV}</td>
+        <td>${el.MaMH}</td>
+        <td>${el.TenMH}</td>
+        <td>${el.MaLop}</td>
+        <td>${el.SLDK}</td>
+        <td>${el.SLD}</td>
+        <td>${el.SLKD}</td>
+    </tr>
+    `
+    })
 
-// const fileInput = document.getElementById('fileInput');
+    console.log(content)
+    table.append(content)
+    console.log(table.innerHTML)
+    $('.wrapper_table').css("display", "inline-block")
+}
+
 $(document).ready(function () {
     const form = $('form')
-    fileInput = $(".file-input")
-    progressArea = $(".progress-area")
-    uploadedArea = $(".uploaded-area")
+    const fileInput = $(".file-input")
+    const tbody = $('tbody')
+    const progressArea = $(".progress-area")
+    const uploadedArea = $(".uploaded-area")
+
+    console.log(form)
+    console.log(tbody)
     fileInput.click(function (event) {
         console.log("file input click")
         event.stopPropagation()
@@ -90,7 +117,7 @@ $(document).ready(function () {
     //     };
     //     reader.readAsArrayBuffer(file);
     // });
-    listObjects = []
+    let listObjects = []
 
     fileInput.change(function (event) {
         const file = event.target.files[0];
@@ -110,9 +137,13 @@ $(document).ready(function () {
                 return item;
             });
             listObjects.push(objects)
+
+            uploadFile(listObjects[listObjects.length - 1], tbody)
         };
         reader.readAsArrayBuffer(file);
+
         console.log(listObjects);
+
 
     });
 })
