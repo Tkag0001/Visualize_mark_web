@@ -90,6 +90,6 @@ const classSchema = new mongoose.Schema({
     }
 })
 
-const class_marks = mongoose.model('class', classSchema)
+const class_marks = mongoose.model('test', classSchema)
 
 module.exports = class_marks

@@ -4,7 +4,7 @@ const router = express.Router()
 
 router.route('/')
     .get(classes.getClasses)
-    .post(classes.createClass)
+    .post(classes.insertManyClasses)
     .delete(classes.deleteClasses)
     .patch(classes.updateClasses)
     
