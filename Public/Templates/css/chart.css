@@ -278,3 +278,16 @@ button i {
 .results ul li:hover {
   background: #ececec;
 }
+
+#btn-search{
+  display: block;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+#btn-search:hover{
+  background-color: rgba(118, 147, 244, 0.3);
+}

@@ -15,7 +15,12 @@ function uploadFile(data, table) {
     `;
         if (temp.indexOf('undefined') !== -1) {
             $('.wrapper_table').css("display", "none");
-            alert('Can\'t read undefined');
+            swal({
+                title: "Error!",
+                text: "Can't read underfined!",
+                icon: "error",
+                button: "Upload again!",
+            });
             return false;  // This will exit the function
         } else {
             content += temp;
@@ -36,12 +41,26 @@ function uploadDb(data) {
         body: JSON.stringify(data),
     })
         .then(response => response.json())
-        .then(data => console.log('Success:', data))
+        .then(data => {
+            swal("Congratulations! Your data has been uploaded.", {
+                icon: "success",
+            })
+            console.log("Success: ", data)
+        })
         .catch(err => {
             console.log(err)
-            alert('Upload is false!')
+            swal({
+                title: "Error!",
+                text: "Upload fail",
+                icon: "error", 
+                button: "Upload again!",
+            });
         });
 }
+
+const data = {
+    // your JSON data here
+};
 
 $(document).ready(function () {
     const form = $('form')
@@ -91,28 +110,80 @@ $(document).ready(function () {
     $('#pushDb').click(function (event) {
         // console.log('push')
         if (!uploadF) {
-            alert('Data is invalid!')
+            // alert('Data is invalid!')
+            swal({
+                title: "Error!",
+                text: "Data is invalid",
+                icon: "error",
+                button: "Upload again!",
+            });
         }
         else {
-            const result = confirm('Are you sure you want to upload data?')
-            if (result == false) {
-                console.log('cancel upload')
-                event.preventDefault()
-            }
-            else {
-                console.log(listObjects)
-                console.log('upload database')
-                uploadDb(listObjects)
-            }
+            // const result = confirm('Are you sure you want to upload data?')
+            // if (result == false) {
+            //     console.log('cancel upload')
+            //     event.preventDefault()
+            // }
+            // else {
+            //     console.log(listObjects)
+            //     console.log('upload database')
+            //     uploadDb(listObjects)
+            // }
+
+            swal({
+                title: "Are you sure you want to upload data?",
+                text: "You can't delete by yourself!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willUpload) => {
+                    if (willUpload) {
+                        // swal("Congratulations! Your data has been uploaded.", {
+                        //     icon: "success",
+                        // });
+                        uploadDb(listObjects)
+                    } else {
+                        swal("Cancle data upload!");
+                    }
+                });
         }
 
     })
 
+    $("#btn-info").click(function(){
+        swal({
+            title: "Note:",
+            text: `Upload your file.
+            If your file can't be uploaded, please check your data. Make sure your data matches the data types of the data fields!            
+            
+            String type: MaKhoa, Khoa, MaGV, HoTenGV, TenMH, MaMH, MaLop
+            Number type: another
+            
+            Download template data here`,
+
+            icon: "info",
+            buttons: true,
+            dangerMode: true,
+            buttons:['Exit', 'Download template']
+        })
+        .then((willUpload)=>{
+            if(willUpload){
+                console.log('download')
+                let link = $("<a></a>")
+                link.attr("download", "template.xlsx")
+                link.attr("href","../data/templateData.xlsx")
+
+                console.log(link)
+                $("body").append(link)
+                link[0].click()
+                link.remove()
+            }
+        })
+    })
 })
 
-const data = {
-    // your JSON data here
-};
+
 
 // fetch('http://your-server-url/', {
 //     method: 'POST',
