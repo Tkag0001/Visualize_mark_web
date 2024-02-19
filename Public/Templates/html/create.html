@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>File Upload JavaScript with Progress Ba | CodingNepal</title>
-  <link rel="shortcut icon" type="x-icon" href="./Images/icon_browser.png">
+  <title>Upload File | CodingNepal</title>
+  <link rel="shortcut icon" type="x-icon" href="./../images/icon_browser.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -15,18 +15,22 @@
   <title>HCM Open university</title>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/66f919815e.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/he/1.2.0/he.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  
   <script src="./../script/create.js"></script>
+
 </head>
 <body>
     <header class="header">
         <a href="#" class="logo">HCM Open university</a>
         <nav class="navbar">
-            <a href="#" class="btn-nav">Home</a>
+            <a href="./home.html" class="btn-nav">Home</a>
             <a href="#" class="btn-nav">About</a>
-            <a href="#" class="btn-nav">Services</a>
+            <a href="#" class="btn-nav">Upload</a>
             <a href="#" class="btn-nav">Help</a>
         </nav>
     </header>
@@ -35,6 +39,8 @@
             <!-- <h1>Hi, I'm Tkag</h1> -->
             <h3>Website visualizes subject scores</h3>
             <div class="wrapper">
+                <!--Button infor-->
+                <button id="btn-info"><i class="fa-solid fa-question"></i></button>
                 <!-- <header>Upload excel file.xlsx</header> -->
                 <form action="#" id="form">
                     <input class="file-input" type="file" name="file" accept=".xlsx" hidden>
