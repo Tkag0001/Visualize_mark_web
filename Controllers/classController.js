@@ -32,7 +32,7 @@ const convertQuery = (query, schema) => {
 };
 exports.getClasses = async (req, res) => {
     try {
-        const marks = await classes.find(req.query)
+        const marks = await classes.find(req.query).sort({ LastUpdate: -1, _id: -1 })
         if (marks.length != 0) {
             res.status(200).json({
                 status: 'succes',
@@ -217,8 +217,7 @@ exports.insertManyClasses = async (req, res) => {
     try {
         console.log(req.body)
         const docs = req.body
-        // let doc = await classes.find({},{_id: 1})
-        const doc = await classes.find({},{_id: 1})
+        const doc = await classes.find({}, { _id: 1 })
         if (!doc) {
             res.status(404).json({
                 status: 'fail',
@@ -226,8 +225,8 @@ exports.insertManyClasses = async (req, res) => {
             })
             return;
         }
-        let id = doc.reduce((max, d) => Math.max(max, d._id), -Infinity);   
-        console.log(id)     
+        let id = doc.reduce((max, d) => Math.max(max, d._id), -Infinity);
+        console.log(id)
         let failDocs = []
         // Map the documents
         const insertedDocs = docs.map(d => Object.assign({ _id: (++id).toString() }, d));
