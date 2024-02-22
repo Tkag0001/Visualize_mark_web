@@ -87,9 +87,13 @@ const classSchema = new mongoose.Schema({
     Diem10_SL: {
         type: Number,
         default: 0
+    },
+    LastUpdate: {
+        type: Date,
+        default: ()=> new Date().toISOString()
     }
 })
 
-const class_marks = mongoose.model('test', classSchema)
+const class_marks = mongoose.model('class', classSchema)
 
 module.exports = class_marks
