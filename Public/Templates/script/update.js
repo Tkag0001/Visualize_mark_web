@@ -1,9 +1,9 @@
 google.charts.load('current', { packages: ['corechart'] })
-const url_MaMH = "http://localhost:3000/api/v1/classes/monhoc/?"
-const url_MaGV = "http://localhost:3000/api/v1/classes/giaovien/?"
-const url_HocKy = "http://localhost:3000/api/v1/classes/hocky/?"
-const url_Classes = "http://localhost:3000/api/v1/classes/?"
-const url_MaLop = "http://localhost:3000/api/v1/classes/malop/?"
+const url_MaMH = "https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/monhoc/?"
+const url_MaGV = "https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/giaovien/?"
+const url_HocKy = "https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/hocky/?"
+const url_Classes = "https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/?"
+const url_MaLop = "https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/malop/?"
 
 //Format ISODate to common time
 function formatDate(date) {
@@ -361,7 +361,7 @@ $(document).ready(async function () {
                         button: "OK",
                     })
 
-                    fetch("http://localhost:3000/api/v1/classes/?_id=" + id, {
+                    fetch("https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/?_id=" + id, {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json',
@@ -402,7 +402,7 @@ $(document).ready(async function () {
                 .then(async function (id) {
                     if (id.trim() === objectTemp['_id']) {
                         objectEdit.LastUpdate = new Date().toISOString()
-                        fetch("http://localhost:3000/api/v1/classes/?_id=" + id, {
+                        fetch("https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/?_id=" + id, {
                             method: 'PATCH',
                             headers: {
                                 'Content-Type': 'application/json',
