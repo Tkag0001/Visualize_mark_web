@@ -8,14 +8,26 @@ const url_MaLop = "https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/malop/?"
 const colors = ['#F5A623', '#7ED321', '#D0021B', '#4A90E2', '#9B9B9B', '#50E3C2', '#9013FE', '#8B572A', '#00C853', '#FFC107', '#FF5722'];
 
 async function getJsonData(url) {
-    const response = await fetch(url);
-    const jsonData = await response.json();
-    if (jsonData.data.length != 0) {
-        return jsonData.data;
+    try {
+        const response = await fetch(url);
+        const jsonData = await response.json();
+        if (jsonData.data.length != 0) {
+            return jsonData.data;
+        }
+        else
+            return null
     }
-    else
+    catch (error) {
+        console.log(error.message)
+        swal({
+            title: "Warning!",
+            text: "Can't find any data, please check your request!",
+            icon: "warning",
+        });
         return null
+    }
 }
+
 
 function convertJsonToDtTable(data, f_name, col_name, title_name) {
     let dataArray = []

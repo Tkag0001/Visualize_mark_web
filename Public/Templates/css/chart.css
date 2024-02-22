@@ -113,7 +113,7 @@ body {
 /* Content */
 .home {
   height: 100vh;
-  /* background: url("../images/background.png") no-repeat; */
+  background: url('../images/backgroundUpdate.png') no-repeat ;
   background-size: cover;
   background-position: center;
   display: flex;

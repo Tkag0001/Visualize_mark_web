@@ -33,7 +33,7 @@ function uploadFile(data, table) {
 
 function uploadDb(data) {
     console.log(data)
-    fetch("https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/?", {
+    fetch("https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -182,16 +182,3 @@ $(document).ready(function () {
         })
     })
 })
-
-
-
-// fetch('http://your-server-url/', {
-//     method: 'POST',
-//     headers: {
-//         'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(data),
-// })
-// .then(response => response.json())
-// .then(data => console.log('Success:', data))
-// .catch((error) => console.error('Error:', error));
