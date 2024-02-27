@@ -1,6 +1,6 @@
 const dotenv = require('dotenv')
 dotenv.config({path: './config.env'})
-const app = require('./app41.js')
+const app = require('./app.js')
 const mongoose = require('mongoose')
 const backup = require('./Backup/classBackup.js')
 var cron = require('node-cron');
