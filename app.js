@@ -5,12 +5,6 @@ const morgan = require('morgan')
 //Connect router
 const classRouter = require('./Routes/classRouter')
 
-//Custom middleware
-// const logger = function (req, res, next) {
-//     console.log('Custom middleware called')
-//     next();
-// }
-
 app.use(express.json())
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'))
