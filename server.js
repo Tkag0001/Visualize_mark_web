@@ -1,7 +1,10 @@
 const dotenv = require('dotenv')
 dotenv.config({path: './config.env'})
-const app = require('./app.js')
+const app = require('./app41.js')
 const mongoose = require('mongoose')
+const backup = require('./Backup/classBackup.js')
+var cron = require('node-cron');
+   
 // console.log(app.get('env'))
 console.log(process.env)
 
@@ -10,6 +13,10 @@ mongoose.connect(process.env.CONN_STR, {
 }).then((conn) => {
     // console.log(conn)
     console.log('DB Connection Successful')
+    cron.schedule('*/2 * * * *', () => {
+        console.log('Backup database');
+        backup.backupMongoDB()
+    });
 }).catch((error) =>{
     console.log('Some error has the occured')
 })
