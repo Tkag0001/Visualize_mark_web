@@ -13,7 +13,7 @@ mongoose.connect(process.env.CONN_STR, {
 }).then((conn) => {
     // console.log(conn)
     console.log('DB Connection Successful')
-    cron.schedule('*/2 * * * *', () => {
+    cron.schedule('* * * * Monday', () => {
         console.log('Backup database');
         backup.backupMongoDB()
     });

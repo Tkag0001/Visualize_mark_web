@@ -6,7 +6,7 @@ const DB_NAME = 'classes_backup'
 const ARCHIVE_PATH = path.join(__dirname, `${DB_NAME}.gzip`)
 const uri=process.env.CONN_STR
 
-console.log(ARCHIVE_PATH)
+// console.log(ARCHIVE_PATH)
 
 // backupMongoDB()
 // restoreMongoDB()
