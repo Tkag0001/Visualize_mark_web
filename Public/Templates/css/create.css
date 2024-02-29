@@ -7,6 +7,7 @@
 }
 body {
   color: rgb(77, 75, 75);
+  max-height: 1800px;
 }
 
 .header {
@@ -123,13 +124,10 @@ body {
 }
 
 .home-content {
-  display: flex;
-  flex-direction: column;
   width: 100%;
   max-width: 80%;
   height: 100%;
   padding-top: 100px;
-  align-items: center;
 }
 
 .home-content h1 {
@@ -155,6 +153,12 @@ body {
   color: #fff;
   background: #6990f2;
 }
+
+.wrapper-container{
+  display: flex;
+  justify-content: center;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -187,7 +191,7 @@ body {
   border: 2px dashed #6990f2;
 }
 
-.wrapper #pushDb{
+.wrapper #pushDb {
   cursor: pointer;
   margin-top: 15px;
   padding: 5px;
@@ -280,16 +284,16 @@ section .details span {
 
 /*Table*/
 .wrapper_table {
-  /* margin: 50px 0; */
   display: none;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 90%;
+  width: 100%;
   overflow-y: auto;
   /* white-space: nowrap; */
-  max-height: 50%;
-  
+  max-height: 95%;
+  box-shadow: 0 20px 20px rgba(255, 255, 255, 0.5);
+  margin-bottom: 40px;
 }
 
 table {
@@ -300,7 +304,8 @@ table {
   /* overflow: hidden; */
   width: 100%;
 }
-td, th {
+td,
+th {
   padding: 15px 20px;
   text-align: center;
   /* width: 100%; */
@@ -327,7 +332,7 @@ tr:nth-child(even) {
   /* background: white; */
 }
 
-#btn-info{
+#btn-info {
   position: absolute;
   top: 0px;
   right: -50px;
@@ -344,7 +349,33 @@ tr:nth-child(even) {
   cursor: pointer;
 }
 
-#btn-info:hover{
+#btn-info:hover {
   background-color: white;
   box-shadow: 2px 2px 5px rgba(64, 64, 64, 0.3);
+}
+
+/*Media queries*/
+@media screen and (max-width: 480px) {
+  .header a {
+    font-size: 16px;
+  }
+
+  .navbar a {
+    margin: 0 8px;
+  }
+
+  .home-content h3 {
+    font-size: 30px;
+  }
+
+  .navbar a:nth-child(1) {
+    margin-left: 10px;
+  }
+
+  .home {
+    background: none;
+    background-size: 200%;
+    background-position: center;
+  }
+
 }

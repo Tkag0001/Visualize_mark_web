@@ -8,6 +8,7 @@
 }
 body {
   color: rgb(77, 75, 75);
+  /* max-height: 1800px; */
 }
 
 .header {
@@ -113,7 +114,7 @@ body {
 /* Content */
 .home {
   height: 100vh;
-  background: url("../images/backgroundUpdate.png") no-repeat;
+  background: url("../images/backgroundUpdate2.png") no-repeat;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -123,10 +124,9 @@ body {
 }
 
 .home-content {
-  width: 100%;
-  max-width: 80%;
-  height: 100%;
-  padding-top: 100px;
+  width: 80%;
+  height: 80%;
+  margin-top: 50px;
   position: relative;
 }
 
@@ -186,13 +186,10 @@ body {
 /*Search box*/
 .container {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
   width: 100%;
   z-index: 1;
+  margin: 30px 0;
 }
 
 .wrapper {
@@ -223,14 +220,6 @@ button {
   border: none;
 }
 
-#btn-search {
-  background: none;
-  height: 50px;
-  line-height: 50px;
-  padding: 0;
-  width: 50px;
-}
-
 button:focus {
   outline: none;
 }
@@ -243,6 +232,11 @@ button i {
 
 .results {
   padding: 0px;
+  background-color: white;
+  border-radius: 0 0 3px 3px;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
 }
 
 .results ul {
@@ -274,6 +268,7 @@ button i {
   padding: 10px;
   max-height: 400px;
   overflow-y: scroll;
+  box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.15);
 }
 
 .results ul li:hover {
@@ -288,6 +283,12 @@ button i {
   border-radius: 5px;
   font-weight: 400;
   cursor: pointer;
+
+  background: none;
+  height: 50px;
+  line-height: 50px;
+  padding: 0;
+  width: 50px;
 }
 
 #btn-search:hover {
@@ -296,19 +297,14 @@ button i {
 
 /*Table*/
 .wrapper_table {
-  /* margin: 50px 0; */
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%);
   display: none;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 90%;
+  width: 100%;
   overflow-y: auto;
   /* white-space: nowrap; */
-  max-height: 50%;
+  max-height: 100%;
   box-shadow: 0 20px 20px rgba(255, 255, 255, 0.5);
 }
 
@@ -376,7 +372,7 @@ tbody {
 .popup-content {
   background-color: white;
   position: absolute;
-  height: 80%;
+  height: 700px;
   width: 80%;
   padding: 20px;
   border-radius: 10px;
@@ -384,7 +380,7 @@ tbody {
   flex-direction: column;
   top: 0;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.1);
+  transform: translate(-50%) scale(0.1);
   visibility: hidden;
   transition: transform 0.4s, top 0.4s;
 }
@@ -432,8 +428,12 @@ tbody {
   align-items: center;
 }
 
-.btn-popup,
-#btn-download {
+.download{
+  display: flex;
+  justify-content: center;
+}
+
+.btn-popup{
   text-align: center;
   width: 100px;
   height: 50px;
@@ -449,6 +449,26 @@ tbody {
   border: 2px solid white;
 }
 
+#btn-download {
+  text-align: center;
+  height: 50px;
+  width: 300px;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  line-height: 18px;
+  font-family: "Roboto", sans-serif;
+  /* border: 2px solid gray; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  border: 2px solid white;
+
+  background-color: rgba(117, 147, 245, 0.8);
+  visibility: hidden;
+  padding: 10px;
+  margin: 20px 0;
+}
+
 .btn-popup,
 #btn-download:hover {
   box-shadow: 4px 6px 20px rgba(0, 0, 0, 0.3);
@@ -462,17 +482,6 @@ tbody {
 #btn-delete,
 #btn-cancel {
   background-color: rgba(255, 80, 80, 0.8);
-}
-
-#btn-download {
-  position: absolute;
-  background-color: rgba(117, 147, 245, 0.8);
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 20%;
-  visibility: hidden;
-  padding: 5px;
 }
 
 .column {
@@ -498,7 +507,7 @@ tbody {
 }
 
 .row > input {
-  width: 70%;
+  width: 65%;
   height: 36px;
   padding: 0 5px;
   font-size: 16px;
@@ -512,4 +521,53 @@ tbody {
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
   /* box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.1); */
+}
+
+/*Media queries*/
+@media screen and (max-width: 480px) {
+  .header a {
+    font-size: 16px;
+  }
+
+  .navbar a {
+    margin: 0 8px;
+  }
+
+  .home-content h3 {
+    font-size: 30px;
+  }
+
+  .navbar a:nth-child(1) {
+    margin-left: 10px;
+  }
+
+  .home {
+    background: none;
+    background-size: 200%;
+    background-position: center;
+  }
+
+  .wrapper {
+    width: 100%;
+    margin: 2px 0;
+    position: relative;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .show .results {
+    max-height: 300px;
+  }
+
+  #btn-search {
+    background-color: #d1d4d9;
+    padding: 3px 0;
+    width: 50%;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
+    margin: 10px 0;
+  }
+  
 }
