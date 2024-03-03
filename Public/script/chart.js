@@ -103,7 +103,17 @@ const getUser = () => {
         body: JSON.stringify({ "auth_token": localStorage.getItem('auth-token') })
     }).then(response => response.json())
         .then(res => {
-            return res
+            // console.log("Success: ", res)
+            if (roles.includes(res.role))
+                return res
+            else {
+                swal("You don't have permission", "Please change another account!", "error")
+                    .then(function () {
+                        window.location.replace('/login')
+                    })
+
+                return null
+            }
         }
         )
         .catch(err => {
