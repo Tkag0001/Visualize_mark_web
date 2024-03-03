@@ -12,6 +12,10 @@ const login = async (acc) => {
 
     if (responseData.success) {
         localStorage.setItem('auth-token', responseData.token);
+        const expirationTime = 30 * 60 * 1000
+        setTimeout(() => {
+            localStorage.removeItem('auth-token');
+        }, expirationTime);
         window.location.replace("/home");
     }
     else {
