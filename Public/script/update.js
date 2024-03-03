@@ -185,7 +185,7 @@ const getUser = (roles) => {
             else {
                 swal("You don't have permission", "Please change another account!", "error")
                     .then(function () {
-                        window.location.replace('/login')
+                        window.location.replace('/home')
                     })
 
                 return null

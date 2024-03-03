@@ -95,7 +95,7 @@ async function groupObject(data, f_name) {
 }
 
 //Check role of user
-const getUser = (roles) => {
+const getUser = () => {
     fetch("https://odd-ruby-trout-cap.cyclic.app/api/v1/auth/check", {
         method: 'POST',
         headers: {
@@ -105,16 +105,7 @@ const getUser = (roles) => {
     }).then(response => response.json())
         .then(res => {
             console.log("Success: ", res)
-            if (roles.includes(res.role))
-                return res
-            else {
-                swal("You don't have permission", "Please change another account!", "error")
-                    .then(function () {
-                        window.location.replace('/login')
-                    })
-
-                return null
-            }
+            return res
         }
         )
         .catch(err => {
@@ -130,7 +121,7 @@ $(document).ready(async function () {
     // console.log({"auth-token": localStorage.getItem('auth-token')})
     // console.log(localStorage.getItem('auth-token'))
     /*Search box*/
-    var user = getUser(["student", "teacher", "administrator"])
+    var user = getUser()
 
     let searchable = [
         'Elastic',
@@ -246,7 +237,7 @@ $(document).ready(async function () {
         drawChart(dataColumnChart, dataPieChart)
     })
 
-    $('#logout').click(async function(){
+    $('#logout').click(async function () {
         localStorage.removeItem('auth-token')
         window.location.replace('/login')
     })
