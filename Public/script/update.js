@@ -105,7 +105,6 @@ function uploadData(data, table) {
 function openPopup(data) {
     //Show popup
     let height_popup = $(document).height()
-    console.log(height_popup)
     $('.popup').css('height', `${height_popup}`)
     $('.popup').addClass('open-popup')
     $('#popup-detail').addClass('show-popup-content')
@@ -179,7 +178,6 @@ const getUser = (roles) => {
         body: JSON.stringify({ "auth_token": localStorage.getItem('auth-token') })
     }).then(response => response.json())
         .then(res => {
-            console.log("Success: ", res)
             if (roles.includes(res.role))
                 return res
             else {
@@ -193,7 +191,6 @@ const getUser = (roles) => {
         }
         )
         .catch(err => {
-            console.log(err)
             window.location.replace('/login')
             return null
         })
@@ -403,7 +400,7 @@ $(document).ready(async function () {
                             'Content-Type': 'application/json',
                         }
                     }).then(response => response.json())
-                        .then(res => console.log("Success: ", res))
+                        .then(res => console.log("Delete succesful"))
                         .catch(err => console.log(err))
 
                     closePopup()
@@ -486,7 +483,6 @@ $(document).ready(async function () {
             return newObj;
         });
 
-        console.log('click btn-download')
         const filename = "reports.xlsx" // Set the desired filename
         const ws = XLSX.utils.json_to_sheet(data_file)
         const wb = XLSX.utils.book_new()

@@ -32,7 +32,6 @@ function uploadFile(data, table) {
 }
 
 function uploadDb(data) {
-    console.log(data)
     fetch("https://odd-ruby-trout-cap.cyclic.app/api/v1/classes/", {
         method: 'POST',
         headers: {
@@ -45,7 +44,7 @@ function uploadDb(data) {
             swal("Congratulations! Your data has been uploaded.", {
                 icon: "success",
             })
-            console.log("Success: ", data)
+            console.log("Upload succesfull!")
         })
         .catch(err => {
             console.log(err)
@@ -72,7 +71,6 @@ const getUser = (roles) => {
         body: JSON.stringify({ "auth_token": localStorage.getItem('auth-token') })
     }).then(response => response.json())
         .then(res => {
-            console.log("Success: ", res)
             if (roles.includes(res.role))
                 return res
             else {
@@ -86,7 +84,6 @@ const getUser = (roles) => {
         }
         )
         .catch(err => {
-            console.log(err)
             window.location.replace('/login')
             return null
         })
@@ -103,15 +100,11 @@ $(document).ready(function () {
     var listObjects = []
     var uploadF = false
 
-    console.log(form)
-    console.log(tbody)
     fileInput.click(function (event) {
-        console.log("file input click")
         event.stopPropagation()
     })
 
     form.click(function () {
-        console.log('form click')
         fileInput.click()
     })
 
@@ -142,9 +135,7 @@ $(document).ready(function () {
     });
 
     $('#pushDb').click(function (event) {
-        // console.log('push')
         if (!uploadF) {
-            // alert('Data is invalid!')
             swal({
                 title: "Error!",
                 text: "Data is invalid",
@@ -153,17 +144,6 @@ $(document).ready(function () {
             });
         }
         else {
-            // const result = confirm('Are you sure you want to upload data?')
-            // if (result == false) {
-            //     console.log('cancel upload')
-            //     event.preventDefault()
-            // }
-            // else {
-            //     console.log(listObjects)
-            //     console.log('upload database')
-            //     uploadDb(listObjects)
-            // }
-
             swal({
                 title: "Are you sure you want to upload data?",
                 text: "You can't delete by yourself!",
@@ -173,9 +153,6 @@ $(document).ready(function () {
             })
                 .then((willUpload) => {
                     if (willUpload) {
-                        // swal("Congratulations! Your data has been uploaded.", {
-                        //     icon: "success",
-                        // });
                         uploadDb(listObjects)
                     } else {
                         swal("Cancle data upload!");
@@ -203,12 +180,10 @@ $(document).ready(function () {
         })
         .then((willUpload)=>{
             if(willUpload){
-                console.log('download')
                 let link = $("<a></a>")
                 link.attr("download", "template.xlsx")
                 link.attr("href","../data/templateData.xlsx")
 
-                console.log(link)
                 $("body").append(link)
                 link[0].click()
                 link.remove()

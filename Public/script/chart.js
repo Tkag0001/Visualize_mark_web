@@ -36,7 +36,6 @@ function convertJsonToDtTable(data, f_name, col_name, title_name) {
     for (let i = 0; i <= 10; i++) {
         dataArray.push([col_name[i], data[f_name[i]], colors[i]])
     }
-    console.log(dataArray)
     const dataTable = google.visualization.arrayToDataTable(dataArray);
     return dataTable
 }
@@ -104,12 +103,10 @@ const getUser = () => {
         body: JSON.stringify({ "auth_token": localStorage.getItem('auth-token') })
     }).then(response => response.json())
         .then(res => {
-            console.log("Success: ", res)
             return res
         }
         )
         .catch(err => {
-            console.log(err)
             window.location.replace('/login')
             return null
         })
@@ -117,9 +114,6 @@ const getUser = () => {
 
 
 $(document).ready(async function () {
-
-    // console.log({"auth-token": localStorage.getItem('auth-token')})
-    // console.log(localStorage.getItem('auth-token'))
     /*Search box*/
     var user = getUser()
 

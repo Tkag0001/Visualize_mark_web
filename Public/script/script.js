@@ -1,6 +1,5 @@
 const login = async (acc) => {
     let responseData;
-    console.log(acc)
     await fetch('https://odd-ruby-trout-cap.cyclic.app/api/v1/auth/login', {
         method: 'POST',
         headers: {
@@ -24,7 +23,6 @@ const login = async (acc) => {
 }
 
 $(document).ready(async function () {
-    console.log($('#sign-in-HCMOU-SSO'))
     $('#sign-in-HCMOU-SSO').click(function () {
         const account = {};
         Swal.fire({

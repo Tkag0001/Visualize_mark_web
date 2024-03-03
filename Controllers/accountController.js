@@ -88,9 +88,7 @@ exports.checkUser = async (req, res) => {
 
         //Get user form mongoDB by ID of decoded
         const userId = decoded.user.id;
-        const user = await accounts.findOne({ "_id": userId })
-
-        // console.log(user)
+        const user = await accounts.findOne({ "_id": userId }, { "role": 1, "username": 1 })
         res.status(200).json(user);
     })
 }

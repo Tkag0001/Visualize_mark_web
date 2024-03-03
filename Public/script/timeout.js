@@ -2,14 +2,12 @@ function setTimeOut() {
 
     // Time to out
     const expectedTime = localStorage.getItem('auth-token-timeout'); // 60000ms = 1 phút
-    console.log(expectedTime)
     if (expectedTime != null) {
         // Set interval to out 
         const intervalId = setInterval(function () {
-            // Lấy thời gian hiện tại trong mỗi lần gọi hàm
+            // Get current time
             const now = new Date().getTime();
-            console.log('Current time: ', now)
-            // So sánh thời gian hiện tại với thời gian dự kiến
+            // Compare current time with the expectedtime
             if (now >= expectedTime) {
                 console.log("Log out");
                 localStorage.removeItem('auth-token-timeout')
