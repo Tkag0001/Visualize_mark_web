@@ -4,8 +4,7 @@ const app = require('./app.js')
 const mongoose = require('mongoose')
 const backup = require('./Backup/classBackup.js')
 var cron = require('node-cron');
-   
-// console.log(app.get('env'))
+
 console.log(process.env)
 
 mongoose.connect(process.env.CONN_STR, {

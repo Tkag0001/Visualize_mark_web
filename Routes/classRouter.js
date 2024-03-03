@@ -8,10 +8,6 @@ router.route('/')
     .delete(classes.deleteClasses)
     .patch(classes.updateClasses)
     
-// router.route('/:MaMH/:MaGV?')
-//     .patch(classes.updateClass)
-//     .delete(classes.deleteClass)
-
 router.route('/giaovien')
     .get(classes.getGiaoVien)
 
