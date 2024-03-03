@@ -94,7 +94,7 @@ async function groupObject(data, f_name) {
 }
 
 //Check role of user
-const getUser = () => {
+const getUser = (roles) => {
     fetch("https://odd-ruby-trout-cap.cyclic.app/api/v1/auth/check", {
         method: 'POST',
         headers: {
@@ -125,7 +125,7 @@ const getUser = () => {
 
 $(document).ready(async function () {
     /*Search box*/
-    var user = getUser()
+    var user = getUser(["student", "teacher", "administrator"])
 
     let searchable = [
         'Elastic',
