@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="shortcut icon" type="x-icon" href="../images/icon_browser.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/chart.css">
+    
+    <title>HCM Open university</title>
+    
+    <script src="https://kit.fontawesome.com/66f919815e.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="../script/chart.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+<body>
+    <header class="header">
+        <a href="./index" class="logo">HCM Open university</a>
+        <nav class="navbar">
+            <a href="#" class="btn-nav">Home</a>
+            <a href="#" class="btn-nav">About</a>
+            <a href="./create" class="btn-nav">Upload</a>
+            <a href="./update" class="btn-nav">Update</a>
+            <a href="#" class="btn-nav" id="logout">Logout</a>
+        </nav>
+    </header>
+    <section class="home">
+        <div class="home-content">
+            <h3>Website visualizes subject scores</h3>
+            <div class="container">
+                <div class="wrapper" id="wrapper1">
+                  <input type="text" name="search" class="searchType" id="searchType1" placeholder="Mã môn học" autocomplete="chrome-off">
+                  <div class="results" id="results1">
+                    <ul>
+                    </ul>
+                </div>
+                </div>
+
+                <div class="wrapper" id="wrapper2">
+                    <input type="text" name="search" class="searchType" id="searchType2"placeholder="Mã giáo viên" autocomplete="chrome-off">
+                    <div class="results" id="results2">
+                      <ul>
+                      </ul>
+                    </div>
+                </div>
+
+                <div class="wrapper" id="wrapper4">
+                    <input type="text" name="search" class="searchType" id="searchType4" placeholder="Mã lớp" autocomplete="chrome-off">
+                    <div class="results" id="results4">
+                      <ul>
+                      </ul>
+                    </div>
+                </div>
+
+                <div class="wrapper" id="wrapper3">
+                    <input type="text" name="search" class="searchType" id="searchType3" placeholder="Học kỳ" autocomplete="chrome-off">
+                    <div class="results" id="results3">
+                      <ul>
+                      </ul>
+                    </div>
+                </div>
+                <button id="btn-search"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+              </div>
+            <div class="myChart">
+                <div id="myColumnChart"></div>
+                <div id="myPieChart"></div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

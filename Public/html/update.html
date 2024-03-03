@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="shortcut icon" type="x-icon" href="../images/icon_browser.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/update.css">
+    
+    <title>Update data</title>
+    
+    <script src="https://kit.fontawesome.com/66f919815e.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="../script/update.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.1/xlsx.full.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <a href="./index" class="logo">HCM Open university</a>
+        <nav class="navbar">
+            <a href="./home" class="btn-nav">Home</a>
+            <a href="#" class="btn-nav">About</a>
+            <a href="./create" class="btn-nav">Upload</a>
+            <a href="#" class="btn-nav">Update</a>
+            <a href="#" class="btn-nav" id="logout">Logout</a>
+        </nav>
+    </header>
+    <section class="home">
+        <div class="home-content">
+            <!-- <h1>Hi, I'm Tkag</h1> -->
+            <h3>Update database</h3>
+            <div class="container">
+                <div class="wrapper" id="wrapper5">
+                    <input type="text" name="search" class="searchType" id="searchType5" placeholder="ID" autocomplete="chrome-off">
+                    <div class="results" id="results5">
+                      <ul>
+                      </ul>
+                    </div>
+                </div>
+                <div class="wrapper" id="wrapper1">
+                  <input type="text" name="search" class="searchType" id="searchType1" placeholder="Mã môn học" autocomplete="chrome-off">
+                  <div class="results" id="results1">
+                    <ul>
+                    </ul>
+                </div>
+                </div>
+
+                <div class="wrapper" id="wrapper2">
+                    <input type="text" name="search" class="searchType" id="searchType2"placeholder="Mã giáo viên" autocomplete="chrome-off">
+                    <div class="results" id="results2">
+                      <ul>
+                      </ul>
+                    </div>
+                </div>
+
+                <div class="wrapper" id="wrapper4">
+                    <input type="text" name="search" class="searchType" id="searchType4" placeholder="Mã lớp" autocomplete="chrome-off">
+                    <div class="results" id="results4">
+                      <ul>
+                      </ul>
+                    </div>
+                </div>
+
+                <div class="wrapper" id="wrapper3">
+                    <input type="text" name="search" class="searchType" id="searchType3" placeholder="Học kỳ" autocomplete="chrome-off">
+                    <div class="results" id="results3">
+                      <ul>
+                      </ul>
+                    </div>
+                </div>
+                <button id="btn-search"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+              </div>
+            <!-- <div class="myChart">
+                <div id="myColumnChart"></div>
+                <div id="myPieChart"></div>
+            </div> -->
+            <div class="wrapper_table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Học kỳ</th>
+                            <th>Mã khoa</th>
+                            <th>Họ tên GV</th>
+                            <th>Mã môn học</th>
+                            <th>Tên Môn học</th>
+                            <th>Mã lớp</th>
+                            <th>Số lượng đăng ký</th>
+                            <th>Last Update</th>            
+                        </tr>
+                    </thead>
+                    <tbody>   
+                    </tbody>            
+                </table>             
+            </div>
+            <div class="download">
+                <button id="btn-download">
+                    Download document
+                </button>  
+            </div>
+        </div>
+        <div class="popup">
+            <div class="popup-content" id="popup-detail">
+                <h3>Object ID: </h3>
+                <button class="btn-exit"><i class="fa-solid fa-circle-xmark"></i></button>
+                <div class="info">
+                    <div class="column left-column">
+                        <div class="row">
+                            <p>Học kỳ:</p>
+                            <input type="number">
+                        </div>
+                        <div class="row">
+                            <p>Mã khoa:</p>
+                            <input type="text">
+                        </div>                        
+                        <div class="row">
+                            <p>Khoa:</p>
+                            <input type="text">
+                        </div>                        
+                        <div class="row">
+                            <p>Mã giáo viên:</p>
+                            <input type="text">
+                        </div>                        
+                        <div class="row">
+                            <p>Họ tên giáo viên:</p>
+                            <input type="text">
+                        </div>                        
+                        <div class="row">
+                            <p>Tên môn học:</p>
+                            <input type="text">
+                        </div>                        
+                        <div class="row">
+                            <p>Mã môn học:</p>
+                            <input type="text">
+                        </div>                        
+                        <div class="row">
+                            <p>Mã lớp:</p>
+                            <input type="text">
+                        </div>                        
+                        <div class="row">
+                            <p>Số lượng đăng ký:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Số lượng đậu:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Số lượng không đậu:</p>
+                            <input type="number">
+                        </div>
+                    </div>
+                    <div class="column right-column">
+                        <div class="row">
+                            <p>Điểm 0:</p>
+                            <input type="number">
+                        </div>
+                        <div class="row">
+                            <p>Điểm 1:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Điểm 2:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Điểm 3:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Điểm 4:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Điểm 5:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Điểm 6:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Điểm 7:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Điểm 8:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Điểm 9:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Điểm 10:</p>
+                            <input type="number">
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-above">
+                    <h3>Last update: </h3>
+                    <div class="btn-container">
+                        <button class="btn-popup" id="btn-edit">Edit</button>
+                        <button class="btn-popup" id="btn-delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-content" id="popup-edit">
+                <h3>Object ID: </h3>
+                <button class="btn-exit"><i class="fa-solid fa-circle-xmark"></i></button>
+                <div class="info">
+                    <div class="column left-column">
+                        <div class="row">
+                            <p>Học kỳ:</p>
+                            <input type="number">
+                        </div>
+                        <div class="row">
+                            <p>Mã khoa:</p>
+                            <input type="text">
+                        </div>                        
+                        <div class="row">
+                            <p>Khoa:</p>
+                            <input type="text">
+                        </div>                        
+                        <div class="row">
+                            <p>Mã giáo viên:</p>
+                            <input type="text">
+                        </div>                        
+                        <div class="row">
+                            <p>Họ tên giáo viên:</p>
+                            <input type="text">
+                        </div>                        
+                        <div class="row">
+                            <p>Tên môn học:</p>
+                            <input type="text">
+                        </div>                        
+                        <div class="row">
+                            <p>Mã môn học:</p>
+                            <input type="text">
+                        </div>                        
+                        <div class="row">
+                            <p>Mã lớp:</p>
+                            <input type="text">
+                        </div>                        
+                        <div class="row">
+                            <p>Số lượng đăng ký:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Số lượng đậu:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Số lượng không đậu:</p>
+                            <input type="number">
+                        </div>
+                    </div>
+                    <div class="column right-column">
+                        <div class="row">
+                            <p>Điểm 0:</p>
+                            <input type="number">
+                        </div>
+                        <div class="row">
+                            <p>Điểm 1:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Điểm 2:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Điểm 3:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Điểm 4:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Điểm 5:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Điểm 6:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Điểm 7:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Điểm 8:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Điểm 9:</p>
+                            <input type="number">
+                        </div>                        
+                        <div class="row">
+                            <p>Điểm 10:</p>
+                            <input type="number">
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-above">
+                    <h3>Last update: </h3>
+                    <div class="btn-container">
+                        <button class="btn-popup" id="btn-cancel">Cancel</button>
+                        <button class="btn-popup" id="btn-save">Save</button>
+                    </div>
+                </div>
+            </div>            
+        </div>
+        
+    </section>
+</body>
+</html>
