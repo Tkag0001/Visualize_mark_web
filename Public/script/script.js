@@ -11,10 +11,9 @@ const login = async (acc) => {
 
     if (responseData.success) {
         localStorage.setItem('auth-token', responseData.token);
-        const expirationTime = 30 * 60 * 1000
-        setTimeout(() => {
-            localStorage.removeItem('auth-token');
-        }, expirationTime);
+        const expirationTime = 2 * 60 * 1000
+        const timeout = new Date().getTime() + expirationTime
+        localStorage.setItem('auth-token-timeout', timeout)
         window.location.replace("/home");
     }
     else {
@@ -24,7 +23,6 @@ const login = async (acc) => {
 
 $(document).ready(async function () {
     $('#sign-in-HCMOU-SSO').click(function () {
-        const account = {};
         Swal.fire({
             title: 'Login',
             html:
