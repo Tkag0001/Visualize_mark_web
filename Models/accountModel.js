@@ -12,7 +12,7 @@ const accountSchema = mongoose.Schema({
     },
     role:{
         type: String,
-        enum: ['student', 'teacher', 'administrator'], default: 'user'
+        enum: ['student', 'teacher', 'administrator'], default: 'student'
     }
 })
 
