@@ -11,7 +11,7 @@ const login = async (acc) => {
 
     if (responseData.success) {
         localStorage.setItem('auth-token', responseData.token);
-        const expirationTime = 2 * 60 * 1000
+        const expirationTime = 30 * 60 * 1000
         const timeout = new Date().getTime() + expirationTime
         localStorage.setItem('auth-token-timeout', timeout)
         window.location.replace("/home");
