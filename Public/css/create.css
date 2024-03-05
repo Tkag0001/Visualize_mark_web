@@ -355,21 +355,32 @@ tr:nth-child(even) {
 }
 
 /*Media queries*/
-@media screen and (max-width: 480px) {
-  .header a {
+@media screen and (max-width:800px) {
+  .header a{
     font-size: 16px;
   }
-
-  .navbar a {
+  
+  .navbar a{
     margin: 0 8px;
-  }
-
-  .home-content h3 {
-    font-size: 30px;
   }
 
   .navbar a:nth-child(1) {
     margin-left: 10px;
+  }
+  
+  .header{
+    padding: 20px 5%;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  .header{
+    font-size: 12px;
+  }
+
+  .home-content h3 {
+    font-size: 30px;
   }
 
   .home {

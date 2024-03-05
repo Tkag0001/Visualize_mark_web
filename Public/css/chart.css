@@ -114,7 +114,7 @@ body {
 /* Content */
 .home {
   height: 100vh;
-  background: url('../images/backgroundUpdate.png') no-repeat ;
+  background: url("../images/backgroundUpdate2.png") no-repeat;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -218,7 +218,7 @@ input:focus {
   outline: none;
 }
 
-#btn-search{
+#btn-search {
   /* position: absolute; */
   border: none;
   background: none;
@@ -279,7 +279,7 @@ button i {
   background: #ececec;
 }
 
-#btn-search{
+#btn-search {
   display: block;
   align-items: center;
   justify-content: center;
@@ -288,91 +288,100 @@ button i {
   cursor: pointer;
 }
 
-#btn-search:hover{
+#btn-search:hover {
   background-color: rgba(118, 147, 244, 0.3);
 }
 
+@media screen and (max-width: 800px) {
+  .header a {
+    font-size: 16px;
+  }
+
+  .navbar a {
+    margin: 0 8px;
+  }
+
+  .navbar a:nth-child(1) {
+    margin-left: 10px;
+  }
+
+  .header {
+    padding: 20px 5%;
+  }
+
+  #myColumnChart {
+    min-height: 90%;
+    min-width: 100%;
+  }
+
+  #myPieChart {
+    min-height: 90%;
+    min-width: 100%;
+  }
+
+  .myChart {
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+  }
+}
+
 /*Media queries*/
-@media screen and (max-width:480px) {
+@media screen and (max-width: 480px) {
+  /* /* .header a{
+  font-size: 12px;
+} */
+
+  .navbar a {
+    margin: 0 8px;
+  }
+  */ .home-content h3 {
+    font-size: 30px;
+  }
   
-.header a{
-  font-size: 16px;
-}
+  .myChart {
+    top: 50%;
+  }
 
-.navbar a{
-  margin: 0 8px;
-}
+  .home {
+    background: none;
+    background-size: 200%;
+    background-position: center;
+  }
 
-.home-content h3 {
-  font-size: 30px;
-}
+  .wrapper {
+    width: 100%;
+    margin: 2px 0;
+    position: relative;
+  }
 
-.navbar a:nth-child(1) {
-  margin-left: 10px;
-}
+  .container {
+    flex-direction: column;
+  }
 
-#myColumnChart {
-  min-height: 90%;
-  min-width: 100%;
-  /* padding-right: 5%; */
-  /* border-right: 1px solid rgb(85, 84, 84); */
-}
+  .results {
+    background-color: white;
+    border-radius: 0 0 3px 3px;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+  }
 
-#myPieChart {
-  min-height: 90%;
-  min-width: 100%;
-}
+  .show .results {
+    /* border: 1px solid gray; */
+    box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.15);
+    max-height: 300px;
+  }
 
-.myChart{
-  flex-direction: column;
-}
-
-.home{
-  background: none ;
-  background-size: 200%;
-  background-position: center;
-}
-
-.wrapper {
-  width: 100%;
-  margin: 2px 0;
-  position: relative;
-}
-
-.container{
-  flex-direction: column;
-}
-
-.results{
-  background-color: white;
-  border-radius: 0 0 3px 3px;
-  position: absolute;
-  z-index: 1;
-  width: 100%
-}
-
-.show .results{
-  /* border: 1px solid gray; */
-  box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.15);
-  max-height: 300px;
-}
-
-#btn-search{
-  position: absolute;
-  top: 105%;
-  left: 50%;
-  transform: translate(-50%) ;
-  color: white;
-  background-color: #d1d4d9;
-  padding: 3px 0;
-  width: 50%;
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.myChart{
-  position: absolute;
-  top: 50%;
-  width: 100%;
-}
-
+  #btn-search {
+    position: absolute;
+    top: 105%;
+    left: 50%;
+    transform: translate(-50%);
+    color: white;
+    background-color: #d1d4d9;
+    padding: 3px 0;
+    width: 50%;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
+  }
 }

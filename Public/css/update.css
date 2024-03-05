@@ -114,7 +114,7 @@ body {
 /* Content */
 .home {
   height: 100vh;
-  background: url("../images/backgroundUpdate.png") no-repeat;
+  background: url("../images/backgroundUpdate2.png") no-repeat;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -429,12 +429,12 @@ tbody {
   align-items: center;
 }
 
-.download{
+.download {
   display: flex;
   justify-content: center;
 }
 
-.btn-popup{
+.btn-popup {
   text-align: center;
   width: 100px;
   height: 50px;
@@ -526,7 +526,7 @@ tbody {
 }
 
 /*Media queries*/
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 800px) {
   .header a {
     font-size: 16px;
   }
@@ -535,12 +535,22 @@ tbody {
     margin: 0 8px;
   }
 
-  .home-content h3 {
-    font-size: 30px;
-  }
-
   .navbar a:nth-child(1) {
     margin-left: 10px;
+  }
+
+  .header {
+    padding: 20px 5%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header a {
+    font-size: 12px; 
+  }
+
+  .home-content h3 {
+    font-size: 30px;
   }
 
   .home {
@@ -571,12 +581,12 @@ tbody {
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
     margin: 10px 0;
   }
-  
-  .popup-content{
+
+  .popup-content {
     width: 95%;
   }
 
-  .btn-above{
+  .btn-above {
     flex-direction: column;
     height: 14%;
   }
