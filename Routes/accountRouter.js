@@ -8,5 +8,6 @@ router.route('/register')
     .post(accounts.registerAccount)
 router.route('/check')
     .post(accounts.checkUser)
-    
+router.route('/edit')
+    .post(accounts.editAccount)
 module.exports = router 

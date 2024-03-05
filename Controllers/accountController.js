@@ -67,7 +67,7 @@ exports.registerAccount = async (req, res) => {
     const user = new accounts({
         username: account.username,
         password: hashedPsw,
-        role: 'student',
+        role: account.role
     })
 
     await user.save();
@@ -92,3 +92,42 @@ exports.checkUser = async (req, res) => {
         res.status(200).json(user);
     })
 }
+
+//edit account
+// Import necessary modules
+// Define the function to edit account information
+exports.editAccount = async (req, res) => {
+    try {
+        // Extract account information from the request body
+        const { username, password, role } = req.body;
+
+        // Hash the password if provided
+        let hashedPsw;
+        if (password) {
+            hashedPsw = await bcrypt.hash(password, 12);
+        }
+
+        // Find the account to edit
+        let user = await accounts.findOne({ username });
+
+        // If the account doesn't exist, return an error
+        if (!user) {
+            return res.status(404).json({ success: false, errors: "Account not found" });
+        }
+
+        // Update the account information
+        // if (username) user.username = username;
+        if (hashedPsw) user.password = hashedPsw;
+        if (role) user.role = role;
+
+        // Save the updated account
+        await user.save();
+
+        // Respond with success message and the updated user data
+        res.status(200).json({ success: true, data: user });
+    } catch (error) {
+        // Handle errors
+        console.error("Error editing account:", error);
+        res.status(500).json({ success: false, errors: "Internal server error" });
+    }
+};
