@@ -17,7 +17,7 @@ function uploadFile(data, table) {
             $('.wrapper_table').css("display", "none");
             swal({
                 title: "Error!",
-                text: "Can't read underfined!",
+                text: "File data is not matched!",
                 icon: "error",
                 button: "Upload again!",
             });
